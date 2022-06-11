@@ -1,8 +1,178 @@
 body {
-  padding: 50px;
+  margin-top: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #1394cf;
+  overflow: auto;
+}
+
+
+.header_buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.header_button {
+  padding: 10px 15px;
+  color: #fff;
+  background: #1394cf;
+  border: 0 none;
+  cursor: pointer;
+  border-radius: 0px;
+}
+
+.header_button:hover {
+  background-color:#1FAAEA;
+}
+  
+.form_box {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 350px;
+  padding: 50px;
+  justify-content: center;
+  align-content: center;
+  background: #ffffff;
+  border: 1px solid #392106;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.welcome_text {
+  font: 25px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+.input_box {
+  background: #FFFFFF;
+  border: 1px solid #392106;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.main_container {
+  justify-content: center;
+  align-content: center;
+  padding: 100px;
+  padding-top: 150px;
+}
+
+.post {
+  /* background-color: #eee;
+  margin: 20px;
+  padding: 20px; */
+  border-bottom: 1px solid black;
+}
+
+.posts {
+  margin: auto;
+  width: 65%;
+}
+
+.post_header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.sign_up_box_padding {
+  padding: 10px;
+  padding-top: 10px;
+}
+
+.sign_up_font_size {
+  font: 30px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding-bottom: 50px;
+}
+
+.center {
+  text-align: center;
+}
+
+/* div {
+  border: 1px solid red;
+} */
+
+.post_contents {
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f1f3;
+}
+
+.username {
+  font: 25px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #f49f0a;
+}
+
+.colour_snow {
+  color: #f8f1f3;
+}
+
+.colour_blue_NCS {
+  color: #1394cf;
+}
+
+.colour_tangerine {
+  color: #F08700;
+}
+
+.colour_orange_web {
+  color: #f49f0a;
+}
+
+.colour_yellow_munsell {
+  color: #EFCA08;
+}
+
+.timeline_header {
+  text-align: center;
+  font-size: 75px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.author_container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.message_container {
+  box-sizing: border-box;
+  box-shadow: 1px 1px 2px;
+  border: 0.5px solid #000000;
+  border-radius: 2px;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.likes_container {
+  padding: 5px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
+}
+
+.comment_container {
+  border-bottom: 1px solid lightslategray;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
 }
