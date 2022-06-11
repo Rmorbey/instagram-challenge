@@ -16,15 +16,24 @@ const PostsController = {
   },
   
   Create: (req, res) => {
-    const contents = { message: req.body.message, user_id: req.session.user._id, username: req.session.user.username }
+    const contents = { 
+      message: req.body.message,
+      image: req.body.image,
+      user_id: req.session.user._id, 
+      username: req.session.user.username ,
+    };
     const post = new Post(contents);
-    post.save((err) => {
-      if (err) {
-        throw err;
-      }
 
+    if (req.body.message) {
+      post.save((err) => {
+        if (err) {
+          throw err;
+        }
+        res.status(201).redirect("/posts");
+      });
+    } else {
       res.status(201).redirect("/posts");
-    });
+    }
   },
 
   CreateComment:  (req, res) => {
@@ -46,6 +55,8 @@ const PostsController = {
   NewComment: (req, res) => {
     res.render("posts/new_comment", {user_id: req.session.user._id, post_id: req.body.post_id})
   }
+
+  
 };
 
 module.exports = PostsController;
