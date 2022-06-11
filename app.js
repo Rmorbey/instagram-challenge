@@ -11,6 +11,8 @@ const postsRouter = require("./routes/posts");
 const sessionsRouter = require("./routes/sessions");
 const usersRouter = require("./routes/users");
 
+var uploadRouter = require('./routes/upload');
+
 const app = express();
 
 // view engine setup
@@ -34,31 +36,32 @@ app.use(
       expires: 600000,
     },
   })
-);
+  );
 
-// clear the cookies after user logs out
-app.use((req, res, next) => {
-  if (req.cookies.user_sid && !req.session.user) {
-    res.clearCookie("user_sid");
-  }
-  next();
-});
-
-// middleware function to check for logged-in users
-const sessionChecker = (req, res, next) => {
-  if (!req.session.user && !req.cookies.user_sid) {
-    res.redirect("/sessions/new");
-  } else {
+  // clear the cookies after user logs out
+  app.use((req, res, next) => {
+    if (req.cookies.user_sid && !req.session.user) {
+      res.clearCookie("user_sid");
+    }
     next();
-  }
-};
-
-// route setup
-app.use("/", homeRouter);
-app.use("/posts", sessionChecker, postsRouter);
-app.use("/sessions", sessionsRouter);
-app.use("/users", usersRouter);
-
+  });
+  
+  // middleware function to check for logged-in users
+  const sessionChecker = (req, res, next) => {
+    if (!req.session.user && !req.cookies.user_sid) {
+      res.redirect("/sessions/new");
+    } else {
+      next();
+    }
+  };
+  
+  // route setup
+  app.use("/", homeRouter);
+  app.use("/posts", sessionChecker, postsRouter);
+  app.use("/sessions", sessionsRouter);
+  app.use("/users", usersRouter);
+  app.use('/', uploadRouter);
+  
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   next(createError(404));

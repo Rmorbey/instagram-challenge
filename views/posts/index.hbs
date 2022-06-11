@@ -37,4 +37,8 @@
   {{/each}}
 </div>
 
-<a class="new-post-link" href="/posts/new">New post</a>
+<form action="/upload" method="POST" enctype="multipart/form-data">
+     <label>Avatar</label>
+     <input type="file"  name="file">
+     <button type="submit">Upload</button>
+</form>
