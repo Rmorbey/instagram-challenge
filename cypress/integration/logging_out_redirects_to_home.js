@@ -1,11 +1,13 @@
 const signUp = require('../support/signup_helper')
 const signIn = require('../support/signin_helper')
 
+
 describe("Authentication", () => {
-  it("A user signs in and is redirected to /posts", () => {
+  it("A user signs up and in, signs out and is redirected to home", () => {
     signUp("email@email.com", "password", "username");
     signIn("email@email.com", "password");
-    cy.url().should("include", "/posts");
-    cy.contains("a", "New post");
+
+    cy.get("#log-out").click();
+    cy.url().should("eq", "http://localhost:3030/");
   });
 });
